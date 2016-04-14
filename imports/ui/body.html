@@ -1,0 +1,42 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>PLEBO EVENTS</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>ADD EVENTS</h2>
+                <form class="new-task">
+                    <input type="text" name="text" placeholder="Type to add new tasks" />
+                    <input type="date" name="date" />
+                    <input type="text" name="location" placeholder="Location" />
+                    <input type="text" name="description" placeholder="Description" />
+                    <input type="submit" name="Create Event" class= "btn" />
+                </form>
+            </div>
+            <div class="col-md-8">
+                <h2>UPCOMING EVENTS</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead><tbody>{{#each tasks}} {{> task}} {{/each}}</tbody></table>
+            </div>
+        </div>
+    </div>
+</body>
+<template name="task">
+    
+        <tr>
+            <td>{{text}}</td>
+            <td>{{date}}</td>
+            <td >{{location}}</td>
+            <td>{{description}}</td>
+        </tr>
+    
+</template>
