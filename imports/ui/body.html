@@ -1,4 +1,10 @@
 <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-10">{{> loginButtons}}</div>
+        </div>
+    </div>
+    {{#if currentUser}}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -12,7 +18,7 @@
                     <input type="date" name="date" />
                     <input type="text" name="location" placeholder="Location" />
                     <input type="text" name="description" placeholder="Description" />
-                    <input type="submit" name="Create Event" class= "btn" />
+                    <input type="submit" name="Create Event" class="btn" />
                 </form>
             </div>
             <div class="col-md-8">
@@ -24,19 +30,16 @@
                             <th>Date</th>
                             <th>Location</th>
                             <th>Description</th>
+                            <th>Created by</th>
+                            <th></th>
                         </tr>
-                    </thead><tbody>{{#each tasks}} {{> task}} {{/each}}</tbody></table>
+                    </thead>
+                    <tbody>{{#each tasks}} {{> task}} {{/each}}</tbody>
+                </table>
             </div>
         </div>
     </div>
+    {{else}}
+    <div><h1>You aren't signed in to get any plebo eventy goodness...</h1></div>
+{{/if}}
 </body>
-<template name="task">
-    
-        <tr>
-            <td>{{text}}</td>
-            <td>{{date}}</td>
-            <td >{{location}}</td>
-            <td>{{description}}</td>
-        </tr>
-    
-</template>
